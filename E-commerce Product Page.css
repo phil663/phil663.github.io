@@ -125,7 +125,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 100px;
-            
+        place-items: center;
+        justify-content: center;
         }
 
            .ad-banner {
