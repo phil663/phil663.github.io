@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Subscription Plans</title>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            height: 100%;
+            background-color: #a8a8a8;
+        }
+        body {
+            font-family: comic sans ms, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+        .plans-container {
+            background: linear-gradient(145deg, #ffffff, #dcdcdc, #bebebe, #a0a0a0, #ffffff);
+            box-shadow: 
+                2px 2px 6px rgba(0, 0, 0, 0.2),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.6),
+                inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 60px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 40px 60px;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            width: 600px;
+        }
+        .plans-container:hover {
+            box-shadow: 
+                4px 4px 8px rgba(0, 0, 0, 0.3),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+                inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+            transform: scale(1.03);
+        }
+        .plan {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #bebebe;
+            border-radius: 40px;
+        }
+        .plan:hover {
+            border-color: #2e8b57;
+            box-shadow: 0 4px 16px rgba(46,139,87,0.2);
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+        .plan-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .plan-price {
+            font-size: 20px;
+            color: #2e8b57;
+        }
+        .plan-desc {
+            margin: 10px 0;
+        }
+        body.fade-out {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 24px;
+            border-radius: 20px;
+            background: #fff;
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: comic sans ms;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-link:hover {
+            background: #2e8b57;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="plans-container">
+        <h2>Choose Your Subscription Plan</h2>
+        <div class="plan">
+            <div class="plan-title">Basic</div>
+            <div class="plan-price">$20/month</div>
+            <div class="plan-desc">Access to gym equipment and locker room.</div>
+        </div>
+        <div class="plan">
+            <div class="plan-title">Standard</div>
+            <div class="plan-price">$35/month</div>
+            <div class="plan-desc">Basic plan + group classes and sauna access.</div>
+        </div>
+        <div class="plan">
+            <div class="plan-title">Premium</div>
+            <div class="plan-price">$50/month</div>
+            <div class="plan-desc">Standard plan + personal trainer and nutrition plan.</div>
+        </div>
+        <a href="LOGIN%20TEST.html" class="back-link" id="backToLogin">Back to Login</a>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
+        document.getElementById('backToLogin').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.body.classList.remove('fade-in');
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = 'LOGIN%20TEST.html';
+            }, 400);
+        });
+    </script>
+</body>
+</html>
