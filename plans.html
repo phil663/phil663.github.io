@@ -107,18 +107,28 @@
         <a href="LOGIN%20TEST.html" class="back-link" id="backToLogin">Back to Login</a>
     </div>
     <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            document.body.classList.add('fade-in');
-        });
+    window.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('fade-in');
+        document.querySelectorAll('.plan').forEach(function(plan) {
+            plan.addEventListener('click', function () {
+                const title = plan.querySelector('.plan-title').textContent;
+                const price = plan.querySelector('.plan-price').textContent.replace('/month', '').replace('$', '');
 
-        document.getElementById('backToLogin').addEventListener('click', function(event) {
+                const proceed = confirm(`Are you sure you want to continue with the ${title} plan?`);
+                if (proceed) {
+                    window.location.href = `checkout.html?plan=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}`;
+                }
+            });
+        });
+        document.getElementById('backToLogin').addEventListener('click', function (event) {
             event.preventDefault();
             document.body.classList.remove('fade-in');
             document.body.classList.add('fade-out');
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = 'LOGIN%20TEST.html';
             }, 400);
         });
-    </script>
+    });
+</script>
 </body>
 </html>
