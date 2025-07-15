@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - Gym Plan</title>
+    <meta charset="UTF-8">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: comic sans ms, sans-serif;
+            background-color: #a8a8a8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkout-container {
+            background: linear-gradient(145deg, #ffffff, #dcdcdc, #bebebe, #a0a0a0, #ffffff);
+            border-radius: 70px;
+            padding: 40px 50px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.5s ease-in-out;
+            width: 400px;
+            box-shadow:
+                    2px 2px 6px rgba(0, 0, 0, 0.2),
+                    inset -2px -2px 4px rgba(255, 255, 255, 0.6),
+                    inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-container:hover {
+           background-color: #BEBEBE;
+                color: black;
+                transition: transform 0.5s ease-in-out;
+                transform: scale(1.03);
+                box-shadow:
+                    4px 4px 8px rgba(0, 0, 0, 0.3),
+                    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+                    inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+                transform: scale(1.03);    
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .plan-info {
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #2e8b57;
+            font-size: 18px;
+        }
+
+        .input {
+            width: 250px;
+            height: 20px;
+            font-size: 12px;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-family: comic sans ms;
+            font-weight: 600;
+            border: 1px;
+        }
+
+        .pay-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #2e8b57;
+            color: black;
+            background-color: #fff;
+            font-family: comic sans ms;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+
+        .pay-btn:hover {
+            background-color: #256c45;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #2e8b57;
+            font-weight: bold;
+        }
+
+        body.fade-out {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+        <div class="plan-info" id="planInfo">Selected Plan: <span id="planName">-</span> ($<span id="planPrice">0</span>/month)</div>
+
+        <input type="text" class="input" placeholder="Your Full Name" required>
+        <input type="email" class="input" placeholder="Email Address" required> <br>
+
+        <button class="pay-btn">Pay Now</button><br>
+
+        <a href="GymPlans.html" class="back-link" id="backToPlans">← Back to Plans</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan');
+        const price = urlParams.get('price');
+
+        document.getElementById('planName').textContent = plan || 'Not Selected';
+        document.getElementById('planPrice').textContent = price || '0';
+
+        document.getElementById('backToPlans').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'Plans.html';
+            }, 400);
+        });
+    </script>
+</body>
+</html>
